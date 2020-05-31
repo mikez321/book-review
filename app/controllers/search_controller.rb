@@ -1,8 +1,6 @@
 class SearchController < ApplicationController
   def index
-    results = SearchResults.new(params['title'])
-    @book = results.load_book
-    # @reviews = ReviewService.new.find_reviews(params['title'])
+    @book = SearchResults.new(params['title']).load_book
   end
 
   def book_params
