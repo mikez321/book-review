@@ -4,9 +4,9 @@
 <p>Publisher: <%= @book.publisher %></p>
 
 <div class="reviews">
-<p>Number of reviews found: <%= @reviews.length %></p>
-  <% @reviews.each do |review| %>
-    <p><%= review[:summary] %></p>
-    <p>Review Publication Date: <%= review[:publication_dt]%></p>
+<p>Number of reviews found: <%= @book.reviews.length %></p>
+  <% @book.reviews.each do |review| %>
+    <p><%= review.summary %></p>
+    <p>Review Publication Date: <%= review.publish_date %></p>
   <% end %>
 </div>
