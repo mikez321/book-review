@@ -11,6 +11,10 @@ describe 'book searching' do
     expect(current_path).to eq("/search")
 
     expect(page).to have_content("Search Results")
+
+    expect(page).to have_content('Normal People')
+    expect(page).to have_content('Sally Rooney')
+    expect(page).to have_content('Faber & Faber, Hogarth, Random House Large Print, Knopf Canada')
   end
 end
 # As a user
