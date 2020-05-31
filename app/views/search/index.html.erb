@@ -1,7 +1,7 @@
 <h1>Search Results</h1>
-<p>Title: <%= @search_result[:title] %></p>
-<p>Author: <%= @search_result[:author_name].first %></p>
-<p>Publisher: <%= @search_result[:publisher].join(', ') %></p>
+<p>Title: <%= @book[:title] %></p>
+<p>Author: <%= @book[:author_name].first %></p>
+<p>Publisher: <%= @book[:publisher].join(', ') %></p>
 
 <div class="reviews">
 <p>Number of reviews found: <%= @reviews.length %></p>
