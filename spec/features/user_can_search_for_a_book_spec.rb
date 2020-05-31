@@ -10,7 +10,7 @@ describe 'book searching' do
 
     expect(current_path).to eq("/search")
 
-    expect(page).to have_content("You made it!")
+    expect(page).to have_content("Search Results")
   end
 end
 # As a user
