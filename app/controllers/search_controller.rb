@@ -6,7 +6,10 @@ class SearchController < ApplicationController
     json = JSON.parse(response.body, symbolize_names: true)
     @search_result = json[:docs].first
 
-    reviews = Faraday.get("https://api.nytimes.com/svc/books/v3/reviews.json?api-key=#{ENV['NYT_KEY']}&title=Normal People")
+    reviews = Faraday.get('https://api.nytimes.com/svc/books/v3/reviews.json') do |f|
+      f.params['api-key'] = ENV['NYT_KEY']
+      f.params['title'] = 'Normal People'
+    end
     review_json = JSON.parse(reviews.body, symbolize_names: true)
     @reviews = review_json[:results]
   end
