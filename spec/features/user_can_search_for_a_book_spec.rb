@@ -16,6 +16,24 @@ describe 'book searching' do
     expect(page).to have_content('Sally Rooney')
     expect(page).to have_content('Faber & Faber, Hogarth, Random House Large Print, Knopf Canada')
   end
+
+  it 'also has reviews for the book' do
+    visit root_path
+
+    fill_in 'title', with: "Normal People"
+
+    click_button "Find Book"
+
+    expect(current_path).to eq("/search")
+
+    within '.reviews' do
+      expect(page).to have_content(2)
+      expect(page).to have_content("Rooney’s second novel tracks two gifted but troubled teenagers across four years of friendship and occasional romance.")
+      expect(page).to have_content("Review Publication Date: 2019-04-08")
+      expect(page).to have_content("Like “Conversations With Friends,” “Normal People” also traces a young romance in Ireland.")
+      expect(page).to have_content("Review Publication Date: 2019-04-15")
+    end
+  end
 end
 # As a user
 # When I visit "/"

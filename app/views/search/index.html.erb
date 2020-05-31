@@ -2,3 +2,11 @@
 <p>Title: <%= @search_result[:title] %></p>
 <p>Author: <%= @search_result[:author_name].first %></p>
 <p>Publisher: <%= @search_result[:publisher].join(', ') %></p>
+
+<div class="reviews">
+<p>Number of reviews found: <%= @reviews.length %></p>
+  <% @reviews.each do |review| %>
+    <p><%= review[:summary] %></p>
+    <p>Review Publication Date: <%= review[:publication_dt]%></p>
+  <% end %>
+</div>
